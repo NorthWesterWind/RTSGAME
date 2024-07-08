@@ -91,8 +91,17 @@ public class Controller : MonoBehaviour
                     SoldierObj sobj = item.GetComponent<SoldierObj>();
                     if (sobj != null)
                     {
-                        sobj.SetEffect(true);
-                        soldierList.Add(sobj);
+                        if(soldierList.Count < 5)
+                        {
+                            sobj.SetEffect(true);
+                            soldierList.Add(sobj);
+                        }
+                        else
+                        {
+                            Debug.Log("抱歉，一次只能选择五名士兵");
+                            return;
+                        }
+                        
                     }
                 }
 
